@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navbar } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+/* import Characters from "./components/Characters/Characters";
+import useFetch from "./hooks/useFetch"; */
+import About from "./pages/About";
+import Main from "./pages/Main";
 
 function App() {
+  /*   const [endpoint, setEndpoint] = useState("character");
+       const [data, error, loading] = useFetch(endpoint);  */
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* <Characters characters={data} /> */}
     </div>
   );
 }
